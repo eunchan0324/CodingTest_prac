@@ -1,23 +1,15 @@
 class Solution {
     public int solution(int n) {
-        int odd = 0;
-        int even = 0;
+        int answer = 0;
         
-        // n이 홀수인지 짝수인지 확인
-        // 홀수라면 n이하의 홀수인 모든 양의 정수의 합을 더하고
-        // 짝수라면 n이하의 짝수인 모든 양의 정수의 제곱을 return
-        for (int i=1; i<=n; i++) {
+        for (int i=n; i>=1; i-=2) {
             if (i % 2 == 0) {
-                even += i*i;
+                answer += i*i;
             } else {
-                odd += i;
+                answer += i;
             }   
         }
         
-        if (n % 2 == 0) {
-            return even;
-        } else {
-            return odd;
-        } 
+        return answer;
     }
 }
