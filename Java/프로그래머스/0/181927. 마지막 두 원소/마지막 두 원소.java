@@ -1,19 +1,14 @@
 class Solution {
     public int[] solution(int[] num_list) {
-        int[] answer = new int[num_list.length + 1];
+        int len = num_list.length;
+        int[] answer = new int[len+1];
         
-        for (int i=0; i<num_list.length; i++) {
-            int num = num_list[i];
-            answer[i] = num;
-            
-            if (i == num_list.length -1) {
-                if (num_list[i] > num_list[i-1]) {
-                    answer[i+1] = num - (num_list[i-1]);
-                } else {
-                    answer[i+1] = num*2;
-                }
-            }
-        }
+        System.arraycopy(num_list, 0, answer, 0, num_list.length);
+        
+        int last = num_list[len-1];
+        int prev = num_list[len-2];
+        
+        answer[len] = last > prev ? last-prev : last*2;
         
         return answer;
     }
