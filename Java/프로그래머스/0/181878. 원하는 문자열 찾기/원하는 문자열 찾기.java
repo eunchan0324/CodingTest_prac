@@ -1,15 +1,7 @@
+import java.util.*;
+
 class Solution {
     public int solution(String myString, String pat) {
-        int answer = 0;
-        
-        if (pat.length() > myString.length()) {
-            return 0;
-        }
-
-        if (myString.toUpperCase().contains(pat.toUpperCase())) {
-            return 1;
-        }
-        
-        return answer;
+        return myString.toUpperCase(Locale.ROOT).indexOf(pat.toUpperCase(Locale.ROOT)) >= 0 ? 1 : 0;
     }
 }
