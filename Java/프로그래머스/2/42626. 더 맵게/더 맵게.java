@@ -4,15 +4,17 @@ class Solution {
     public int solution(int[] scoville, int K) {
         int answer = 0;
     
-        Queue<Integer> pq = new PriorityQueue<>();
+        Queue<Long> pq = new PriorityQueue<>();
         
-        for (int s : scoville) pq.offer(s);
-        
+        for (int s : scoville) {
+            pq.offer((long)s);
+        } 
+            
         while (pq.peek() < K) {
             if (pq.size() < 2) return -1;
             
-            int first = pq.poll();
-            int second = pq.poll();
+            Long first = pq.poll();
+            Long second = pq.poll();
             pq.offer(first + (second * 2));
             
             answer++;
