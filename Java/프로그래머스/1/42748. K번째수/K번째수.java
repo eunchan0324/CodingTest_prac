@@ -5,15 +5,14 @@ class Solution {
         int[] answer = new int[commands.length];
         
         for (int n=0; n<commands.length; n++) {
-            List<Integer> list = new ArrayList<>();
+            int from = commands[n][0]-1;
+            int to = commands[n][1];
+            int k = commands[n][2]-1;
             
-            for (int i=commands[n][0]-1; i<commands[n][1]; i++) {
-                list.add(array[i]);
-            }
+            int[] slice = Arrays.copyOfRange(array, from, to);
+            Arrays.sort(slice);
             
-            Collections.sort(list);
-            
-            answer[n] = list.get(commands[n][2]-1);
+            answer[n] = slice[k];
         }        
         
         return answer;
